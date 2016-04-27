@@ -54,3 +54,28 @@ object VideoQuality extends SealedEnumeration {
   )
 }
 ```
+
+### `SealedDBEnumeration`
+
+Requires a `name` to specify the database type to map to. If you are not using enumerations in your database, `StringyDBEnumeration` maps to `text`.
+
+```scala
+object Intervals extends SealedDBEnumeration {
+  sealed trait Value extends ValueMixin
+
+  val name = "interval"
+  override def default = Some(Intervals.Day)
+
+  case object Hour extends Value { val value = "hour" }
+  case object Day extends Value { val value = "day" }
+  case object Week extends Value { val value = "week" }
+  case object Month extends Value { val value = "month" }
+
+  val values = Vector(
+    Hour,
+    Day,
+    Week,
+    Month
+  )
+}
+```
