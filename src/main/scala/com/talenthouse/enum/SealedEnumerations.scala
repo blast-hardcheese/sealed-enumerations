@@ -3,6 +3,8 @@ package com.talenthouse.enum
 trait BaseSealedEnumeration {
   trait ValueMixin {
     val value: String
+    @deprecated("Please use .value instead!", "1.0")
+    override def toString: String = value
   }
 
   type Value <: ValueMixin
@@ -21,6 +23,14 @@ trait BaseSealedEnumeration {
       .getOrElse {
         throw new Exception(s"""[${this.getClass.getSimpleName}] Unknown value "${value}"""")
       }
+  }
+
+  @deprecated("Please use Values directly instead of String comparison", "1.0")
+  def asStringSet: Set[String] = values.map(_.value).toSet
+
+  implicit class RichValue(x: Value) {
+    @deprecated("Please figure out a way to do this differently", "1.0")
+    def id: Int = values.indexOf(x)
   }
 }
 
