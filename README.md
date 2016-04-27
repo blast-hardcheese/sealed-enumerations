@@ -21,3 +21,36 @@ Thank you
 ---------
 
 Thanks to @laser and @papaver
+
+Example usage
+-------------
+
+We recommend that you define the following trait:
+
+```scala
+trait SealedEnumeration
+  extends SealedOrderedEnumeration
+     with SealedBindableEnumeration
+     with SealedJsonEnumeration
+     with BaseSealedEnumeration
+```
+
+This allows you to choose which libraries you want to integrate with.
+
+### `SealedEnumeration` (no Slick extensions):
+
+```scala
+object VideoQuality extends SealedEnumeration {
+  sealed trait Value extends ValueMixin
+
+  case object High extends Value { val value = "high" }
+  case object Medium extends Value { val value = "medium" }
+  case object Low extends Value { val value = "low" }
+
+  val values = Vector(
+    High,
+    Medium,
+    Low
+  )
+}
+```
