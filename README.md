@@ -13,9 +13,9 @@ Scala `Enumeration`s are extremely convenient, and have a nice interface to work
 
 Additionally, we found we were re-implementing common tasks when working with other libraries:
 
-1. `SealedEnumeration` <=> [`slick`](https://github.com/slick/slick) [`JdbcType`](https://github.com/slick/slick/blob/master/slick/src/main/scala/slick/jdbc/JdbcType.scala) conversions
-1. `GetResult`s and `SetParameter`s for `[T]`, `[Option[T]]`, and `[List[T]]`
-1. Play `Format[T]`, `QueryStringBindable[T]`, `PathBindable[T]` instances
+1. [Slick](https://github.com/slick/slick) [`JdbcType`](https://github.com/slick/slick/blob/master/slick/src/main/scala/slick/jdbc/JdbcType.scala) conversions
+1. [Slick](https://github.com/slick/slick) `GetResult` and `SetParameter`s for `[T <: Value]`, `[Option[T <: Value]]`, and `[List[T <: Value]]`
+1. [Play](https://github.com/playframework/playframework) `Format[T]`, `QueryStringBindable[T <: Value]`, `PathBindable[T <: Value]` instances
 
 Thank you
 ---------
