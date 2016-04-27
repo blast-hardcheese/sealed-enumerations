@@ -20,7 +20,7 @@ Additionally, we found we were re-implementing common tasks when working with ot
 Thank you
 ---------
 
-Thanks to @laser and @papaver
+Thanks to [@laser](https://github.com/laser) and [@papaver](https://github.com/papaver)
 
 Example usage
 -------------
